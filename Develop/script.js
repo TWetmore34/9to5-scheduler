@@ -1,7 +1,16 @@
 // global dom variables
 var testEl = document.querySelectorAll('[value="submit"]');
-var inputEl = document.querySelectorAll('input')
+var inputEl = document.querySelectorAll('input');
+var dayEl = document.getElementById('currentDay');
 
+function clock(){
+    setInterval(function(e){
+        let clock = moment().format('MMMM Do YYYY, h:mm:ss a');
+        dayEl.innerHTML = clock;
+    },1000)
+}
+clock()
+console.log(moment().format('HH'))
 // runs a loop to let an event listener hit all the submit buttons
 for(i=0;i<testEl.length;i++){
 testEl[i].addEventListener('click', function(){
@@ -38,5 +47,17 @@ inputEl[5].value = JSON.parse(localStorage.getItem('storage'))[0].two
 inputEl[6].value = JSON.parse(localStorage.getItem('storage'))[0].three
 inputEl[7].value = JSON.parse(localStorage.getItem('storage'))[0].four
 inputEl[8].value = JSON.parse(localStorage.getItem('storage'))[0].five
+
+
+// changes color display based on time
+for (i=0;i<inputEl.length;i++){
+    if (inputEl[i].dataset.time == moment().format('H')){
+        inputEl[i].setAttribute('class', 'bg-present col-8')
+    } else if(inputEl[i].dataset.time < moment().format('H')){
+    console.log('i am here')
+    inputEl[i].setAttribute('class', 'bg-custom col-8');
+    } 
+}
+
 };
 display()

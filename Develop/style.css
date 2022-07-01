@@ -73,3 +73,11 @@ textarea {
 .submit:hover{
   cursor: pointer;
 }
+
+.bg-custom{
+  background-color: grey;
+}
+
+.bg-present{
+  background-color: red;
+}
