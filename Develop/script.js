@@ -53,7 +53,7 @@ console.log(moment().format('H'))
 for (i=0;i<inputEl.length;i++){
     if (inputEl[i].dataset.time == moment().format('H')){
         inputEl[i].setAttribute('class', 'bg-present col-8')
-    } else if(inputEl[i].dataset.time > moment().format('H')){
+    } else if(inputEl[i].dataset.time < moment().format('H')){
     
     inputEl[i].setAttribute('class', 'bg-custom col-8');
     } 
