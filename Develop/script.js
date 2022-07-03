@@ -49,15 +49,19 @@ inputEl[7].value = JSON.parse(localStorage.getItem('storage'))[0].four
 inputEl[8].value = JSON.parse(localStorage.getItem('storage'))[0].five
 
 console.log(moment().format('H'))
+console.log(inputEl[0].dataset.time)
+
 // changes color display based on time
+console.log(typeof(inputEl[0].dataset.time))
 for (i=0;i<inputEl.length;i++){
     if (inputEl[i].dataset.time == moment().format('H')){
         inputEl[i].setAttribute('class', 'bg-present col-8')
-    } else if(inputEl[i].dataset.time < moment().format('H')){
-    
-    inputEl[i].setAttribute('class', 'bg-custom col-8');
-    } 
-}
-
-};
+    } else if(inputEl[i].dataset.time < moment().format('H')){  
+        inputEl[i].setAttribute('class', 'bg-custom col-8');
+    } else if (moment().format('H') >= 9){
+        inputEl[0].setAttribute('class', 'bg-custom col-8')
+    } else if(moment().format('H') == 9){
+        inputEl[0].setAttribute('class', 'bg-present col-8')
+    }
+}};
 display()
